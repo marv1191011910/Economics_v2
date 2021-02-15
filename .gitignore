@@ -1,5 +1,7 @@
 Cogs/dep_withdraw.py
 .env
+__pycache__/
+
 
 Add files like `.env` into `.gitignore` by:
 

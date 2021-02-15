@@ -175,12 +175,11 @@ if __name__ == '__main__':
     file_to_ignore = ("__init__.py", )
 
     # loading the extensions
-    economic_etx = [f"_Cogs.{i[:-3]}" for i in os.listdir(
-        "_Cogs/") if i[-3:] == ".py" and not i in file_to_ignore]
+    economic_etx = [f"Cogs.{i[:-3]}" for i in os.listdir(
+        "Cogs") if i[-3:] == ".py" and not i in file_to_ignore]
 
     for e in economic_etx:
-        for i in e:
-            _load_ext(i)
+        _load_ext(e)
 
     # loading the tokens
     TOKEN = os.environ.get('bot_Token')
