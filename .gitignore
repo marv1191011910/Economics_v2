@@ -1,0 +1,10 @@
+Cogs/dep_withdraw.py
+.env
+
+Add files like `.env` into `.gitignore` by:
+
+echo '.env' >> .gitignore
+git rm -r --cached .env
+git add .gitignore
+git commit -m 'untracking .env'
+git push origin master
