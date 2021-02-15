@@ -37,24 +37,8 @@ async def on_message(message):
     content = message.content  # the content
     print(f"{author}: {content}")
 
-    if "787331712601686017" in str(content) and str(message.author.id) != "787331712601686017":
+    if "810963397809537055" in str(content) and str(message.author.id) != "810963397809537055":
         await message.channel.send(f"My prefix: `{get_prefix(client, message)}`, send `{get_prefix(client, message)}help` to see all the commands <@{author.id}>")
-
-    if "@everyone" in str(content) \
-            and str(author.id) != "759129467414380554" \
-            and str(message.channel.id) in ["793839165464117268", "793839120643522603"] \
-            and str(author.id) != "787331712601686017":
-
-        await message.channel.purge(limit=1)
-        msg = await message.channel.send(f"<@{message.author.id}> don't you dare do `@everyone` <:emoji_24:810580802848686102>")
-        await msg.add_reaction("<:emoji_24:810580802848686102>")
-
-    if "https://top.gg/bot/" in str(content) \
-            and str(message.author.id) != "759129467414380554" \
-            and str(message.channel.id) in ["793839165464117268", "793839120643522603"]:
-
-        await message.channel.purge(limit=1)
-        await message.channel.send("That url is banned in this server")
 
     # to see what command was given
     await client.process_commands(message)
