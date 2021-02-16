@@ -1,4 +1,4 @@
-import keep_live  # to keep the bot alive
+# import keep_live  # to keep the bot alive
 import discord
 from discord.ext import commands
 import os
@@ -18,7 +18,7 @@ def get_prefix(client, message):
 client = commands.Bot(command_prefix=get_prefix)
 
 # deleting the default `%help`
-client.remove_command('help')
+# client.remove_command('help')
 
 
 # to see whether the bot is running or not
