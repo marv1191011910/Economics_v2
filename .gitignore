@@ -1,12 +1,11 @@
-Cogs/dep_withdraw.py
 .env
-__pycache__/
+__pycache__
+.vscode/
 
-
-Add files like `.env` into `.gitignore` by:
-
-echo '.env' >> .gitignore
-git rm -r --cached .env
-git add .gitignore
-git commit -m 'untracking .env'
-git push origin master
+# Add files like `.env` into `.gitignore` by:
+# C
+# git rm -r --cached .env
+# git add .gitignore
+# git commit -m 'untracking .env'
+# git push origin master
+Json/db.json
