@@ -3,10 +3,9 @@ import json
 from utils import Main_checks
 from discord.ext import commands
 
+# TODO: Add coins
 
 class DepAndWith(Main_checks.MainChecks, commands.Cog):
-    current_balance: str = "Current balance:"
-
     def __init__(self, client):
         self.client = client
 
@@ -32,7 +31,8 @@ class DepAndWith(Main_checks.MainChecks, commands.Cog):
             embed.set_footer(text=f"{amount} withdrawn by {ctx.author.name}")
             # saving the new data
             self.save_data(user_data)
-            return await ctx.send(embed=embed)
+            msg = await ctx.send(embed=embed)
+            return await msg.add_reaction(self.reaction_coin)
 
         total = user_data[str(ctx.author.id)]['bank'] + \
             user_data[str(ctx.author.id)]['wallet']
@@ -41,7 +41,8 @@ class DepAndWith(Main_checks.MainChecks, commands.Cog):
         embed.add_field(name=self.current_balance,
                         value=f"Wallet: {user_data[str(ctx.author.id)]['wallet']} \nBank: {user_data[str(ctx.author.id)]['bank']} \nTotal: {total}", inline=False)
         embed.set_footer(text=f"{ctx.author.name} couldn't withdraw {amount}")
-        await ctx.send(embed=embed)
+        msg = await ctx.send(embed=embed)
+        await msg.add_reaction(self.reaction_coin)
 
     @commands.command(aliases=["deposit", "dep max", "dep all", "depmax", "depall"])
     async def dep(self, ctx, amount: float = 10) -> None:
@@ -65,7 +66,8 @@ class DepAndWith(Main_checks.MainChecks, commands.Cog):
             embed.set_footer(text=f"{amount} deposited by {ctx.author.name}")
             # saving the new data
             self.save_data(user_data)
-            return await ctx.send(embed=embed)
+            msg = await ctx.send(embed=embed)
+            return await msg.add_reaction(self.reaction_coin)
 
         total = user_data[str(ctx.author.id)]['bank'] + \
             user_data[str(ctx.author.id)]['wallet']
@@ -74,7 +76,8 @@ class DepAndWith(Main_checks.MainChecks, commands.Cog):
         embed.add_field(name=self.current_balance,
                         value=f"Wallet: {user_data[str(ctx.author.id)]['wallet']} \nBank: {user_data[str(ctx.author.id)]['bank']} \nTotal: {total}", inline=False)
         embed.set_footer(text=f"{ctx.author.name} couldn't deposit {amount}")
-        await ctx.send(embed=embed)
+        msg = await ctx.send(embed=embed)
+        await msg.add_reaction(self.reaction_coin)
 
 
 def setup(client):

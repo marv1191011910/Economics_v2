@@ -10,6 +10,11 @@ DB_PATH = "Json\db.json"
 
 
 class MainChecks():
+    current_balance: str = "Current balance:"
+    coin = "<:coin_3:811329630803066921>"
+    reaction_coin = "🪙"
+    coin_2 = "<:coin_2:811329629847027733>"
+    
     def __init__(self, *_):
         print("Inside __init__")
         self._ = _
