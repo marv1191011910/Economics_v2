@@ -22,9 +22,9 @@ class MainChecks():
 
     def account_exist(self, user_id: str):
         """Checks whether the account exist"""
-        print("Inside account_exist")
         data = self.load_data()
-        if not user_id in data.keys():
+        if str(user_id) not in data:
+            print("created new account")
             return self.open_account(str(user_id))
 
     def open_account(self, user_id: str) -> None:
