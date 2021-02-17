@@ -11,17 +11,20 @@ DB_PATH = "Json\db.json"
 
 class MainChecks():
     current_balance: str = "Current balance:"
-    coin = "<:coin_3:811329630803066921>"
-    reaction_coin = "🪙"
-    coin_2 = "<:coin_2:811329629847027733>"
+    coin_3 = "<:coin_3:811329630803066921>"
     
+    reaction_coin = coin = "🪙"
+    
+    coin_4 = "<:Coin_4:811627460642603039>"
+    coin_2 = "<:coin_2:811329629847027733>"
+    bank = "<:BANK:811626657680982088>"
+
     def __init__(self, *_):
         print("Inside __init__")
         self._ = _
 
     def load_data(self) -> dict:
         """Loads data"""
-        print("Inside load_data")
         with open(DB_PATH, "r") as file:
             return json.load(file)
 
@@ -34,7 +37,6 @@ class MainChecks():
 
     def open_account(self, user_id: str) -> None:
         """A new account is being made"""
-        print("Inside open_account")
         data = self.load_data()
 
         data[user_id] = {}
@@ -45,6 +47,5 @@ class MainChecks():
 
     def save_data(self, data) -> None:
         """Saving the current state of the account"""
-        print("Inside save_data")
         with open(DB_PATH, "w") as file:
             json.dump(data, file, indent=4)
