@@ -9,3 +9,4 @@ __pycache__
 # git commit -m 'untracking .env'
 # git push origin master
 Json/db.json
+Json/prefixes.json
