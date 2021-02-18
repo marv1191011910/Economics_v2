@@ -25,9 +25,9 @@ class DepAndWith(Main_checks.MainChecks, commands.Cog):
             total = user_data[str(ctx.author.id)]['bank'] + \
                 user_data[str(ctx.author.id)]['wallet']
             embed = discord.Embed(
-                title=f"{ctx.author.name} has withdrawn {amount}", description="", color=discord.Colour.random())
+                title=f"{ctx.author.name} has withdrawn {self.currency} {amount}", description="", color=discord.Colour.random())
             embed.add_field(name=self.current_balance,
-                            value=f"Wallet: {user_data[str(ctx.author.id)]['wallet']} \nBank: {user_data[str(ctx.author.id)]['bank']} \nTotal: {total}", inline=False)
+                            value=f"Wallet: {self.currency} {user_data[str(ctx.author.id)]['wallet']} \nBank: {self.currency} {user_data[str(ctx.author.id)]['bank']} \nTotal: {self.currency} {total}", inline=False)
             embed.set_footer(text=f"{amount} withdrawn by {ctx.author.name}")
             # saving the new data
             self.save_data(user_data)
@@ -37,10 +37,10 @@ class DepAndWith(Main_checks.MainChecks, commands.Cog):
         total = user_data[str(ctx.author.id)]['bank'] + \
             user_data[str(ctx.author.id)]['wallet']
         embed = discord.Embed(
-            title=f"You don't have enough money in the bank to withdraw {amount}", description="", color=discord.Colour.random())
+            title=f"You don't have enough money in the bank to withdraw {self.currency} {amount}", description="", color=discord.Colour.random())
         embed.add_field(name=self.current_balance,
-                        value=f"Wallet: {user_data[str(ctx.author.id)]['wallet']} \nBank: {user_data[str(ctx.author.id)]['bank']} \nTotal: {total}", inline=False)
-        embed.set_footer(text=f"{ctx.author.name} couldn't withdraw {amount}")
+                        value=f"Wallet: {self.currency} {user_data[str(ctx.author.id)]['wallet']} \nBank: {self.currency} {user_data[str(ctx.author.id)]['bank']} \nTotal: {self.currency} {total}", inline=False)
+        embed.set_footer(text=f"{ctx.author.name} couldn't withdraw {self.currency} {amount}")
         msg = await ctx.send(embed=embed)
         await msg.add_reaction(self.reaction_coin)
 
@@ -59,9 +59,9 @@ class DepAndWith(Main_checks.MainChecks, commands.Cog):
             total = user_data[str(ctx.author.id)]['bank'] + \
                 user_data[str(ctx.author.id)]['wallet']
             embed = discord.Embed(
-                title=f"{ctx.author.name} has deposited {amount}", description="", color=discord.Colour.random())
+                title=f"{ctx.author.name} has deposited {self.currency} {amount}", description="", color=discord.Colour.random())
             embed.add_field(name=self.current_balance,
-                            value=f"Wallet: {user_data[str(ctx.author.id)]['wallet']} \nBank: {user_data[str(ctx.author.id)]['bank']} \nTotal: {total}", inline=False)
+                            value=f"Wallet: {self.currency} {user_data[str(ctx.author.id)]['wallet']} \nBank: {self.currency} {user_data[str(ctx.author.id)]['bank']} \nTotal: {self.currency} {total}", inline=False)
 
             embed.set_footer(text=f"{amount} deposited by {ctx.author.name}")
             # saving the new data
@@ -72,10 +72,10 @@ class DepAndWith(Main_checks.MainChecks, commands.Cog):
         total = user_data[str(ctx.author.id)]['bank'] + \
             user_data[str(ctx.author.id)]['wallet']
         embed = discord.Embed(
-            title=f"You don't have enough money in your wallet to deposit {amount}", description="", color=discord.Colour.random())
+            title=f"You don't have enough money in your wallet to deposit {self.currency} {amount}", description="", color=discord.Colour.random())
         embed.add_field(name=self.current_balance,
-                        value=f"Wallet: {user_data[str(ctx.author.id)]['wallet']} \nBank: {user_data[str(ctx.author.id)]['bank']} \nTotal: {total}", inline=False)
-        embed.set_footer(text=f"{ctx.author.name} couldn't deposit {amount}")
+                        value=f"Wallet: {self.currency} {user_data[str(ctx.author.id)]['wallet']} \nBank: {self.currency} {user_data[str(ctx.author.id)]['bank']} \nTotal: {self.currency} {total}", inline=False)
+        embed.set_footer(text=f"{ctx.author.name} couldn't deposit {self.currency} {amount}")
         msg = await ctx.send(embed=embed)
         await msg.add_reaction(self.reaction_coin)
 

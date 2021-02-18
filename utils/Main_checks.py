@@ -19,8 +19,10 @@ class MainChecks():
     coin_2 = "<:coin_2:811329629847027733>"
     bank = "<:BANK:811626657680982088>"
 
+    currency = "✪"
+    danker_meme = "⏣"
+
     def __init__(self, *_):
-        print("Inside __init__")
         self._ = _
 
     def load_data(self) -> dict:
